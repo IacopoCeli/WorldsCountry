@@ -5,7 +5,7 @@ export default function Footer() {
   return (
     <>
       <div className="stiky-bottom text-center footer">
-        Footer section of site
+        Sito progettato e sviluppato da IC{'/>'} DevStudio.<br/> Per maggiori informazione contattare <a href="mailto:iacopo.celi@yahoo.it">iacopo.celi@yahoo.it</a>
       </div>
     </>
   );

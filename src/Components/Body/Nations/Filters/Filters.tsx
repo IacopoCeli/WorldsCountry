@@ -32,7 +32,7 @@ export function Filters({handleFiltersChange}:{handleFiltersChange:(filters:iFil
 
   useEffect(() => {
 
-    Countries.GetCountries()
+    Countries.GetWorldCurrencies()
     .then((data: { jsonObject: { object: iCurrency[]; }; }) => {
       _setCurrencies(data.jsonObject.object.sort((a:iCurrency, b:iCurrency) => (a.label > b.label) ? 1 : -1))
     })
@@ -152,13 +152,13 @@ export function Filters({handleFiltersChange}:{handleFiltersChange:(filters:iFil
 
         <div className="input-group">
           <label htmlFor="populationLowLimit" className="form-label">Population low limit</label>
-          <input type="range" className="form-range" min="0" max="1000000000" id="populationLowLimit" onChange={(e) => setMinPopulation(parseInt(e.target.value))}/>
+          <input type="range" className="form-range" min="0" max="100000000" id="populationLowLimit" onChange={(e) => setMinPopulation(parseInt(e.target.value))}/>
           <p>{minPopulation}</p>
         </div>
 
         <div className="input-group">
           <label htmlFor="populationHighLimit" className="form-label">Population high limit</label>
-          <input type="range" className="form-range" min="0" max="1000000000" id="populationHighLimit" onChange={(e) => setMaxPopulation(parseInt(e.target.value))}/>
+          <input type="range" className="form-range" min="0" max="100000000" id="populationHighLimit" onChange={(e) => setMaxPopulation(parseInt(e.target.value))}/>
           <p>{maxPopulation}</p>
         </div>
 

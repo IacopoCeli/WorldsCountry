@@ -72,4 +72,30 @@ async function GetCountries(_name = '', _carSide = '', _continent = '', _populat
 
 }
 
-export { GetCountries }
+async function GetWorldCurrencies(){
+
+    return _GetCountries()
+    .then(data => {
+
+        let _currencies = [];
+
+        data.forEach(country => {
+            Object.getOwnPropertyNames(country.currencies).forEach((currency) => {
+
+                let c = {
+                    name: country.currencies[currency].name,
+                    label: currency,
+                    symbol: country.currencies[currency].symbol ? country.currencies[currency].symbol : 'n.a.'
+                };
+
+                if(_currencies.filter(ele => ele.label == c.label) == 0) _currencies.push(c);
+
+            })
+        });
+
+        return MakeResponseJsonMessage(1, '', _currencies);
+
+    });
+}
+
+export { GetCountries, GetWorldCurrencies }
